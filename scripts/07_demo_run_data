@@ -1,0 +1,10 @@
+#!/bin/bash
+
+TOPIC=data_demo
+BROKER=kafka:9092
+FILE=/data/scripts/07_source_demo.csv
+
+cat ${FILE} | while read LINE; do 
+  echo ${LINE} | kafka-console-producer --broker-list ${BROKER} --topic ${TOPIC}
+  sleep 0.1
+done
